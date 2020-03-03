@@ -12,4 +12,4 @@ module.exports = {
     'src/**/*.entity.ts'
   ],
   namingStrategy: new SnakeNamingStrategy()
-};
+};j
