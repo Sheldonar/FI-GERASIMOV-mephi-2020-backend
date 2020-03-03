@@ -1,0 +1,51 @@
+version: '2.4'
+
+services:
+
+  kaf42-mephi-postgres:
+    container_name: kaf42-mephi-postgres
+    build: ./docker/postgres
+    image: kaf42-mephi-postgres
+    ports:
+    - "127.0.0.1:5432:5432"
+    env_file:
+      - .env
+    volumes:
+    - ./docker-data/postgres/data:/var/lib/postgresql/data
+    environment:
+      PGDATA: /var/lib/postgresql/data/
+    restart: always
+
+  kaf42-mephi-minio:
+    container_name: kaf42-mephi-minio
+    image: minio/minio
+    ports:
+      - 9000:9000
+    volumes:
+    - ./docker-data/minio/data:/data
+    command: server /data
+    env_file:
+      - .env
+    restart: always
+
+  kaf42-nodejs:
+    container_name: kaf42-nodejs
+    build: ./docker/nodejs
+    image: kaf42-nodejs
+    volumes:
+      - .:/app
+    ports:
+      - 8090:${PORT}
+      - 5555:5555
+    env_file:
+      - .env
+    depends_on:
+      - kaf42-mephi-postgres
+      - kaf42-mephi-minio
+    command: yarn prod
+    restart: always
+
+networks:
+  default:
+    external:
+      name: kaf42
