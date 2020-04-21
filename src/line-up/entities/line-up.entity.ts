@@ -4,12 +4,6 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
   name: 'line-up',
 })
 export class LineUp {
-
-  constructor(name: string, style: string, rating: number) {
-    this.name = name;
-    this.style = style;
-    this.rating = rating;
-  }
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

@@ -11,9 +11,9 @@ export class UsersService {
     private readonly UsersRepository: Repository<Users>,
   ) {}
 
-  public createUser(login: string, password: string): Users {
-    return new Users(login, password);
-  }
+  // public createUser(login: string, password: string): Promise<Users> {
+  //   return new Users(login, password);
+  // }
 
   public getItem(id?: string): Promise<Users> {
     return this.UsersRepository.findOne({

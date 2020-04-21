@@ -7,11 +7,11 @@ import { Injectable } from '@nestjs/common';
 export class LineUpService {
   constructor(
     @InjectRepository(LineUp)
-    private readonly NewsRepository: Repository<LineUp>,
+    private readonly LineUpRepository: Repository<LineUp>,
   ) {}
 
   public getItem(id?: string): Promise<LineUp> {
-    return this.NewsRepository.findOne({
+    return this.LineUpRepository.findOne({
       order: {
         createdAt: 'ASC',
       },

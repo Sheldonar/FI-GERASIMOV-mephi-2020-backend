@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { LineUpController } from '@app/line-up/line-up.controller';
+import { LineUpController } from '@app/line-up/line-up.controller.ts';
 import { LineUp } from '@app/line-up/entities/line-up.entity';
 import { LineUpService } from '@app/line-up/line-up.service';
 
@@ -16,4 +16,4 @@ import { LineUpService } from '@app/line-up/line-up.service';
     LineUpService,
   ],
 })
-export class NewsModule {}
+export class LineUpModule {}

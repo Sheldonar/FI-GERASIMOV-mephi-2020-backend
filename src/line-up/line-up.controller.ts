@@ -4,7 +4,7 @@ import {LineUpService} from '@app/line-up/line-up.service';
 import {LineUp} from '@app/line-up/entities/line-up.entity.ts';
 
 @Controller('news')
-export class NewsController {
+export class LineUpController {
   constructor(
     private readonly lineUpService: LineUpService,
   ) {}
