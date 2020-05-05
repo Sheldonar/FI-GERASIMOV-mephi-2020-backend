@@ -4,31 +4,27 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
   name: 'line-up',
 })
 export class LineUp {
+
+  constructor(name: string, style: string, description: string, rating: number) {
+    this.name = name;
+    this.style = style;
+    this.description = description;
+    this.rating = rating;
+  }
+
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({
-    type: 'varchar',
-    length: 255,
-  })
+  @Column()
   name: string;
 
-  @Column({
-    type: 'varchar',
-    length: 255,
-  })
-  description: string;
-
-  @Column({
-    type: 'varchar',
-    length: 255,
-  })
+  @Column()
   style: string;
 
-  @Column({
-    type: 'number',
-    length: 255,
-  })
+  @Column()
+  description: string;
+
+  @Column()
   rating: number;
 
   @CreateDateColumn({

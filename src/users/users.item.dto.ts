@@ -5,4 +5,5 @@ export class UsersItemDto {
   @IsUUID('4')
   id?: string;
   login?: string;
+  password?: string;
 }

@@ -6,5 +6,6 @@ export class LineUpItemDto {
   id?: string;
   name?: string;
   style?: string;
+  description?: string;
   rating?: number;
 }
